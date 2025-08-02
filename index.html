@@ -9,9 +9,6 @@
 
 <body>
 	<div class="site-background">
-	<canvas id="animation-canvas">
-		"Womp, your browser does not have support for HTML canvas."
-	</canvas>
 	</div>
 	<div id="site" class="site">
 		<nav id="navbar" class="navbar">
@@ -208,31 +205,5 @@
 		site.classList.toggle('collapsed');
 	});
 </script>
-
-<script>
-	// Create a Canvas:
-const canvas = document.getElementById("animation-canvas");
-const ctx = canvas.getContext("2d");
-
-
-ctx.beginPath();
-
-// Set start-point
-ctx.moveTo(20,20);
-
-// Set sub-points
-ctx.lineTo(100,20);
-ctx.lineTo(175,100);
-ctx.lineTo(20,100);
-
-// Set end-point
-ctx.lineTo(20,20);
-
-// Stroke it (do the drawing)
-ctx.stroke();
-
-
-</script>
-
 
 </html>
