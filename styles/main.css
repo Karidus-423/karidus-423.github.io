@@ -5,22 +5,11 @@
 	position:relative;
 }
 
-.main .content-background{
-	width:inherit;
-	height:100vh;
-	position:absolute;
-	z-index: 0;
-}
-
-.main .content-background canvas{
-	width: inherit;
-	height: inherit;
-}
 
 .main .content{
 	display:grid;
 	padding: 2em 5em 1em 4em;
-	background-color: var(--gray500);
+	background-color: var(--gray400);
     backdrop-filter: blur(10px);
 	z-index:1;
 }
