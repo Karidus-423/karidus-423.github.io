@@ -1,12 +1,22 @@
 <!doctype html>
-<section id="base">
+<section id="base" class="base">
 	<ol>
-		<li><button><h2>Replacing Lectures with Conference Talks and Interviews</h2></button></li>
-		<li><button><h2>Using Ryan Fleury's Approach on Widget Flags with HTML</h2></button></li>
+		<li><button
+				hx-tigger="click"
+				hx-get="./blogs/replacing-lectures.html"
+				hx-swap="innerHTML transition:true"
+				hx-target="#base"
+				><h2>Replacing Lectures with Conference Talks and Interviews</h2></button></li>
+		<li><button><h2>Using Ryan Fleury's Approach on Widget Flags with HTMX</h2></button></li>
 		<li><button><h2>The Power of Reading for Imagination</h2></button></li>
 		<li><button><h2>Trying to become a Handmade Hero</h2></button></li>
 		<li><button><h2>Becoming Free from LSPs and Unecessary Tools for Development</h2></button></li>
 		<li><button><h2>How to Find the Correct Problem</h2></button></li>
-		<li><button><h2>The Best Productivity Tip I Have Found</h2></button></li>
+		<li><button
+				hx-tigger="click"
+				hx-get="./blogs/the-best-productivity-tip.html"
+				hx-swap="innerHTML transition:true"
+				hx-target="#base"
+				><h2>The Best Productivity Tip I Have Found</h2></button></li>
 	</ol>
 </section>
