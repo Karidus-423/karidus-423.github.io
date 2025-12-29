@@ -152,6 +152,7 @@ button:active{
 }
 
 h1, h2, h3, h4, h5, h6{
+	font-weight: 300;
 	background-color: inherit;
 	text-align: center;
 	text-shadow: 0px 0px 8px #727358;
@@ -172,7 +173,7 @@ a{
 	color: #717F71;
 	font-style: italic;
 	font-weight: 900;
-	text-decoration: none;
+	text-emphasis: underline;
 
     transition: text-shadow .2s;
 }
@@ -195,6 +196,25 @@ hr::after {
   padding: 0 4px;
   position: relative;
   top: -19px;
+}
+
+.icon{
+	width: 2rem;
+	height: 2rem;
+}
+
+.gallery{
+	width: 150px;
+	height: 150px;
+	border-radius: 2px;
+	border: #737f7f solid 2px;
+	border-top: none;
+	border-bottom: none;
+	overflow: hidden;
+	padding: 0.5rem;
+
+	margin: 1rem;
+	margin-bottom: 0.2rem;
 }
 
 .window{
