@@ -35,16 +35,14 @@
 	font-family: "Lora", serif;
 	transition-timing-function: cubic-bezier(0.15, 0.79, 0, 1);
 	background-color: #2a2f30;
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
+   scrollbar-width: thin;          /* "auto" or "thin" */
+   scrollbar-color: #737f7f #2a2f30;
+}
 
 html{
 	font-size: clamp(10px, 5vw, 22px);
+	text-rendering: optimizeLegibility;
 }
 
 nav {
@@ -136,7 +134,6 @@ button{
 
 	text-align: center;
 
-    background: red; /* default color */
 
     background: linear-gradient(to left, #2a2f30 50%, #737F7F 50%) right;
     background-size: 201%;
