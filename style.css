@@ -198,6 +198,29 @@ hr::after {
   top: -19px;
 }
 
+blockquote {
+	text-decoration: italic;
+	border-left: solid 2px #A68192;
+    border-right: solid 2px #A68192;
+	padding-left: 1rem;
+}
+
+blockquote > cite {
+  padding-bottom: 0.2rem;
+  color: #4e555c; 
+}
+
+aside {
+  width: 20vw;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  float: right;
+  border-left: double #7c4300 4px;
+  font-style: oblique 20deg;
+  font-size: 0.95rem;
+  color: #7c4300;
+}
+
 .icon{
 	width: 2rem;
 	height: 2rem;
