@@ -137,7 +137,7 @@ button{
 
     background: linear-gradient(to left, #2a2f30 50%, #737F7F 50%) right;
     background-size: 201%;
-    transition: all .5s;
+    transition: all 350ms;
 }
 
 button:hover{
@@ -159,14 +159,18 @@ h1, h2, h3, h4, h5, h6{
 	color: #727358;
 }
 
+button h2{
+	text-shadow: 0px 0px 30px #727358;
+}
+
 button:hover h2{
 	color: #2a2f30;
 	text-shadow: 0px 0px 0px #2a2f30;
+	transition: all 200ms;
 }
 
 p{
 	text-align: center;
-	text-wrap: pretty;
 }
 
 a{
@@ -180,6 +184,11 @@ a{
 
 a:hover{
   text-shadow: 8px 0 10px #717F71;
+}
+
+u {
+	color: #4e555c; 
+	text-decoration: none;
 }
 
 hr {
@@ -208,6 +217,7 @@ blockquote {
 blockquote > cite {
   padding-bottom: 0.2rem;
   color: #4e555c; 
+  text-align: right;
 }
 
 aside {
@@ -217,7 +227,7 @@ aside {
   float: right;
   border-left: double #7c4300 4px;
   font-style: oblique 20deg;
-  font-size: 0.95rem;
+  font-size: 0.80rem;
   color: #7c4300;
 }
 
@@ -246,7 +256,7 @@ aside {
 	border-radius: 2px;
 	overflow: hidden;
 	margin: auto;
-	margin-top: 2rem;
+	padding-top: 2rem;
 }
 canvas{
 	width: inherit;
@@ -275,7 +285,7 @@ canvas{
 }
 
 ::view-transition-old(slide-it) {
- animation: 200ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+ animation: 200ms both fade-out;
 }
 ::view-transition-new(slide-it) {
  animation: 400ms both slide-from-bottom;
