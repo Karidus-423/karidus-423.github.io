@@ -9,7 +9,7 @@
 		  customElements.define('kc-shaderview', ShaderviewElement);
 		</script>
 
-		<link rel="stylesheet" href="./style.css"/>
+		<!-- <link rel="stylesheet" href="./style.css"/> -->
 	    <link rel="icon" href="./assets/favicon.png"
         type="image/x-icon" />
 
@@ -17,6 +17,309 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<title>Compendium</title>
+		<style>
+		/* darkslategray = "#293234", */
+/* gray = "#737F7F", */
+/* cyan = "#4e555c", */
+/* blue = "#4e5f63", */
+/* red = "#634e4e", */
+/* lightred = "#806464", */
+/* green = "#4f625a", */
+/* lime = "#657f74", */
+/* teal = "#4e6363", */
+/* orange = "#727358", */
+/* pop = "#AF5F00", */
+/* brightwhite = "#CCCCCC", */
+/* darkwhite = "#424d4d", */
+/* background = #2a2f30 */
+/* bezier = nier, 0.15, 0.79, 0, 1 */
+/* transition-timing-function: cubic-bezier(0.15, 0.79, 0, 1); */
+
+
+@font-face {
+  font-family: "Lora";
+  src: url("./fonts/Lora/Lora-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lora-Italic";
+  src: url("./fonts/Lora/Lora-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+*{
+	color: #737F7F;
+	font-family: "Lora", serif;
+	transition-timing-function: cubic-bezier(0.15, 0.79, 0, 1);
+	background-color: #2a2f30;
+
+   scrollbar-width: thin;          /* "auto" or "thin" */
+   scrollbar-color: #737f7f #2a2f30;
+}
+
+html{
+	font-size: clamp(10px, 5vw, 22px);
+	text-rendering: optimizeLegibility;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  overflow: scroll;
+}
+
+nav button{
+	font-size: 1.1rem;
+	margin: 0 0.8rem;
+	padding: 0.3rem 0.5rem;
+}
+
+nav button:focus{
+	color: #2a2f30;
+    background-position: left;
+}
+
+body
+{
+    max-width: clamp(100px, 80vw, 850px);
+	min-height: 100vh;
+	line-height: 1.5;
+
+    /* padding: 0 1rem 0 1rem; */
+	display: block;
+	margin: auto;
+	/* Center all elements inside body */
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* align-items: center; */
+	/* justify-content: center; */
+}
+
+section{
+	max-width: inherit;
+}
+
+
+
+/* Horizontal List */
+ul {
+	list-style: none inside;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 0;
+	margin: 0;
+}
+
+ul li{
+	padding: 0.5rem;
+	margin: 0.3rem 0 0.3rem 0
+}
+
+/* Vertical List */
+ol {
+	list-style: none outside;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-left: 0;
+}
+
+ol li{
+	padding: 0.5rem;
+	maring: 5rem 0rem;
+}
+
+button{
+	border-width: 2px;
+	border-radius: 2px;
+	border-style: solid none solid none;
+	border-color: #737F7F;
+	padding: 0.2rem;
+	margin: 0 0.3rem 0 0.3rem
+
+	text-align: center;
+
+
+    background: linear-gradient(to left, #2a2f30 50%, #737F7F 50%) right;
+    background-size: 201%;
+    transition: all 350ms;
+}
+
+button:hover{
+	color: #2a2f30;
+    background-position: left;
+}
+
+button:active{
+	color: #2a2f30;
+    background-color: #737F7F;
+	box-shadow: inset 0px 1px 0px 3px #2a2f30;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: 300;
+	background-color: inherit;
+	text-align: center;
+	text-shadow: 0px 0px 8px #727358;
+	color: #727358;
+}
+
+button h2{
+	text-shadow: 0px 0px 30px #727358;
+}
+
+button:hover h2{
+	color: #2a2f30;
+	text-shadow: 0px 0px 0px #2a2f30;
+	transition: all 200ms;
+}
+
+p{
+	text-align: center;
+}
+
+a{
+	color: #717F71;
+	font-style: italic;
+	font-weight: 900;
+	text-emphasis: underline;
+
+    transition: text-shadow .2s;
+}
+
+a:hover{
+  text-shadow: 8px 0 10px #717F71;
+}
+
+u {
+	color: #4e555c; 
+	text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 4px dotted #737f7f;
+  color: #737f7f;
+  overflow: visible;
+  text-align: center;
+}
+
+hr::after {
+  background: inherit;
+  content: "Δ";
+  padding: 0 4px;
+  position: relative;
+  top: -19px;
+}
+
+blockquote {
+	text-decoration: italic;
+	border-left: solid 2px #A68192;
+    border-right: solid 2px #A68192;
+	padding-left: 1rem;
+}
+
+blockquote > cite {
+  padding-bottom: 0.2rem;
+  color: #4e555c; 
+  text-align: right;
+}
+
+aside {
+  width: 20vw;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  float: right;
+  border-left: double #7c4300 4px;
+  font-style: oblique 20deg;
+  font-size: 0.80rem;
+  color: #7c4300;
+}
+
+.icon{
+	padding: 0;
+	margin: 0;
+	width: 2rem;
+	height: 2rem;
+	fill: #4E5F63;
+	transition: all 200ms;
+}
+.icon:hover{
+	fill: #718999;
+}
+
+
+.gallery{
+	width: 150px;
+	height: 150px;
+	border-radius: 2px;
+	border: #737f7f solid 2px;
+	border-top: none;
+	border-bottom: none;
+	overflow: hidden;
+	padding: 0.5rem;
+
+	margin: 1rem;
+	margin-bottom: 0.2rem;
+}
+
+.window{
+	width: 50px;
+	height: 50px;
+	border-radius: 2px;
+	overflow: hidden;
+	margin: auto;
+	padding-top: 2rem;
+}
+canvas{
+	width: inherit;
+	height: inherit;
+}
+.shaderview{
+	width: inherit;
+	height: inherit;
+}
+
+
+@keyframes fade-in {
+ from { opacity: 0; }
+}
+
+@keyframes fade-out {
+ to { opacity: 0; }
+}
+
+@keyframes slide-from-bottom {
+ from { transform: translateY(3000px); }
+}
+
+.base {
+ view-transition-name: slide-it;
+}
+
+::view-transition-old(slide-it) {
+ animation: 200ms both fade-out;
+}
+::view-transition-new(slide-it) {
+ animation: 400ms both slide-from-bottom;
+}
+	
+		</style>
 	</head>
 	<body hx-ext="response-targets">
 		<section>
