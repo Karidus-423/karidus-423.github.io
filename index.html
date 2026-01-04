@@ -18,7 +18,7 @@
 
 		<title>Compendium</title>
 		<style>
-		/* darkslategray = "#293234", */
+/* darkslategray = "#293234", */
 /* gray = "#737F7F", */
 /* cyan = "#4e555c", */
 /* blue = "#4e5f63", */
@@ -265,6 +265,10 @@ aside {
 	box-shadow: 10px red;
 }
 
+.background_effect{
+    min-width: 500px;
+	min-height: 300px;
+}
 
 .gallery{
 	width: 150px;
@@ -364,7 +368,95 @@ canvas{
 			<!-- <button>Models</button> -->
 			<!-- <button>Music</button> -->
 		</nav>
-		<section id="base" style="base">
+		<section id="base">
+			<canvas class="background_effect" id="rain_effect">
+			</canvas>
+			<script>
+				let rain_effect = document.getElementById("rain_effect")
+				// var BACKGROUND = "#2a2f30"
+				let BACKGROUND = "#2a2230"
+				let RAINCOLOR = "#737f7f"
+				let win_width = rain_effect.width
+				let win_height = rain_effect.height
+
+				let ctx = rain_effect.getContext("2d")
+
+				const FPS = 60
+				const dt = 1/FPS
+				let ty = 0
+				let ts = 0
+
+				let dw = 0
+				let dh = 0
+				const raindrops = create_rain_drops(20)
+
+				function draw(){
+					clear()
+
+					ty += 1 * dt
+					ts += 1 * dt
+					for (const drop of raindrops){
+						drop.y -= ty
+						drop.width < 2 ? drop.width -= ts : ts 
+						// drop.height += ts
+
+						screen_p = animate(drop)
+						raindrop(screen_p.x, screen_p.y, drop.width, drop.height)
+						if (screen_p.y < win_height){
+							drop.y = 2
+							drop.width = 10
+							drop.height = 1
+						}
+					}
+
+					setTimeout(draw, 1000/FPS)
+				}
+
+				function animate(drop){
+					point_2d = transform_3d_to_2d({x : drop.x, y : drop.y, z : drop.z})
+					screen_p = world_to_screen(point_2d)
+					return {x : screen_p.x,
+							y : screen_p.y}
+				}
+
+				function raindrop(x, y, width, height){
+					ctx.fillStyle = RAINCOLOR
+					ctx.fillRect(x - width/2, y - height/2, width, height)
+				}
+
+				function world_to_screen(p){
+					return {
+						x: (p.x + 1)/2 * win_width, 
+						y: (1 - (p.y + 1)/2) * win_height, 
+					}
+				}
+
+				function create_rain_drops(amount){
+					let drops = []
+
+					for (let i = 0; i < amount; i++){
+						let rand = Math.random() * 2 -1
+						drops.push({x: rand*2, y: 1, z: 2, width: 10, height: 10})
+					}
+
+					return drops
+				}
+
+				function transform_3d_to_2d(p){
+					return {
+						x: p.x/p.z,
+						y: p.y/p.z,
+					}
+				}
+
+				function clear(){
+					ctx.fillStyle = BACKGROUND
+					ctx.fillRect(0, 0, win_width, win_height)
+				}
+
+				setTimeout(draw, 1000/FPS)
+				draw()
+			</script>
 		</section>
 	</body>
 </html>
